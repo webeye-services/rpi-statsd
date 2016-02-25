@@ -2,7 +2,9 @@ FROM hypriot/rpi-node
 
 RUN mkdir -p /opt/statsd
 
-COPY app/ /opt/statsd
+ADD app /opt/statsd
+
+COPY config.json /opt/statsd/config.json
 
 WORKDIR /opt/statsd
 
@@ -10,5 +12,5 @@ ADD config.json /opt/statsd/config.json
 
 EXPOSE 8125/udp 8126
 
-#ENTRYPOINT ["node", "stats.js", "/opt/statsd/config.json"]
-CMD ["bash"]
+ENTRYPOINT ["node", "bin/statsd", "/opt/statsd/config.json"]
+

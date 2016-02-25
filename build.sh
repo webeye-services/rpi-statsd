@@ -16,4 +16,4 @@ ssh root@$rpi_ip "mkdir -p /opt/docker-statsd/app"
 cd ../
 rsync -av --delete ./ root@$rpi_ip:/opt/docker-statsd/
 
-ssh root@$rpi_ip "chmod +x /opt/docker-statsd/build-on-rpi.sh && cd /opt/docker-statsd/ && ./build-on-rpi.sh $tag"
+#/build-on-rpi.sh && cd /opt/docker-statsd/ && ./build-on-rpi.sh $tag"
